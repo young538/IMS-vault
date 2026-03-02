@@ -1,0 +1,14 @@
+# OpenClaw workspace internals
+AGENTS.md
+BOOTSTRAP.md
+HEARTBEAT.md
+IDENTITY.md
+MEMORY.md
+NOTION_WORKFLOW_SUMMARY.md
+SOUL.md
+TOOLS.md
+USER.md
+memory/
+
+# Keep vault content as source of truth
+!obsidian-vault/
