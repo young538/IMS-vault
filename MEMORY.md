@@ -1,10 +1,10 @@
 # MEMORY.md
 
-## User profile
-- User name: 오세영
-- Preferred addressing: 오세영님
-- Timezone: Asia/Seoul
+## 사용자 프로필
+- 사용자 이름: 오세영
+- 선호 호칭: 오세영님
+- 시간대: Asia/Seoul
 
-## Working conventions
-- In schedule/task systems, treat "사용자님" and "오세영" as the same person.
-- Use 존댓말 in Korean.
+## 작업 규칙
+- 일정/할일 시스템에서 "사용자님"과 "오세영"은 동일인으로 처리
+- 기본 응답 언어는 한국어, 말투는 존댓말

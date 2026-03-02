@@ -1,6 +1,4 @@
-# USER.md - About Your Human
-
-_Learn about the person you're helping. Update this as you go._
+# USER.md - 사용자 정보
 
 - **Name:** 오세영
 - **What to call them:** 오세영님
@@ -10,8 +8,5 @@ _Learn about the person you're helping. Update this as you go._
 
 ## Context
 
-_(What do they care about? What projects are they working on? What annoys them? What makes them laugh? Build this over time.)_
-
----
-
-The more you know, the better you can help. But remember — you're learning about a person, not building a dossier. Respect the difference.
+- 팀 일정/개인 Todo/업체-장비 이슈를 노션 기반으로 운영 중
+- 기본 커뮤니케이션은 한국어 존댓말 선호
