@@ -37,7 +37,7 @@ if ! grep -q '^## 메모' "$DAILY_FILE"; then
   printf "\n## 메모\n" >> "$DAILY_FILE"
 fi
 
-printf "- [%s] **%s**: %s\n" "$NOW_KST" "$TITLE" "$BODY" >> "$DAILY_FILE"
+printf -- "- [%s] **%s**: %s\n" "$NOW_KST" "$TITLE" "$BODY" >> "$DAILY_FILE"
 
 echo "[OK] Obsidian 기록 완료: $REL_PATH"
 
@@ -50,19 +50,21 @@ if [[ -z "$NOTION_KEY" ]]; then
   exit 0
 fi
 
-PAYLOAD=$(cat <<JSON
-{
-  "parent": {"database_id": "$NOTION_DB_ID"},
+PAYLOAD=$(python3 - <<PY
+import json, datetime
+payload = {
+  "parent": {"database_id": "0c134acf-7b48-4926-a185-5c7a1ecf1147"},
   "properties": {
-    "제목": {"title": [{"text": {"content": "${TITLE//"/\"}"}}]},
-    "분류": {"select": {"name": "${CATEGORY//"/\"}"}},
-    "메모": {"rich_text": [{"text": {"content": "${BODY//"/\"}"}}]},
-    "기록시각": {"date": {"start": "$(date -Iseconds)"}},
+    "Name": {"title": [{"text": {"content": """$TITLE"""}}]},
+    "분류": {"select": {"name": """$CATEGORY"""}},
+    "메모": {"rich_text": [{"text": {"content": """$BODY"""}}]},
+    "기록시각": {"date": {"start": datetime.datetime.now(datetime.timezone.utc).isoformat()}},
     "출처": {"select": {"name": "OpenClaw"}},
-    "옵시디언경로": {"rich_text": [{"text": {"content": "$REL_PATH"}}]}
+    "옵시디언경로": {"rich_text": [{"text": {"content": """$REL_PATH"""}}]}
   }
 }
-JSON
+print(json.dumps(payload, ensure_ascii=False))
+PY
 )
 
 curl -sS -X POST "https://api.notion.com/v1/pages" \
